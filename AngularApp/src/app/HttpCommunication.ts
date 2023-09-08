@@ -57,5 +57,19 @@ export class HttpCommunication extends AbstractHttpCommunication {
     var result = this.client.get<book[]>(path, headers); // make GET http request
     return result;
   }
+  override DeleteBook(id: number): Observable<object> {
+    let path = `${this.url}/Del_book/${id}`;
+    var response = this.client.delete(path, { observe: 'response' });
+    return response;
   }
-}
+  override Add(bk: book): Observable<object> {
+    const path = `${this.url}/add`;
+    const head = new HttpHeaders({ 'content-type': 'application/json' });
+    var result = this.client.post(path, bk, {
+      headers: head,
+      observe: 'response',
+    });
+    return result;
+  }
+  }
+
