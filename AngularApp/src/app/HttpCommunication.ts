@@ -71,5 +71,52 @@ export class HttpCommunication extends AbstractHttpCommunication {
     });
     return result;
   }
+  override UpdateBook(bk: book): Observable<object> {
+    const path = `${this.url}/Updt_book`;
+    const head = new HttpHeaders({ 'content-type': 'application/json' });
+    var result = this.client.put(path, bk, {
+      headers: head,
+      observe: 'response',
+    });
+    return result;
+  }
+  override GetBookCategory(name: string): Observable<book[]> {
+    let path = `${this.url}/Book_category/${name}`;
+
+    const headers = { headers: new HttpHeaders({ observe: 'response' }) };
+    var result = this.client.get<book[]>(path, headers); // make GET http request
+    return result;
+  }
+  override getTokenAndAccesProtectedResources(
+    userName: string,
+    password: string
+  ): Observable<HttpResponse<TokenAndRole>> {
+    const url = `${this.url}/login`;
+
+    var credentials = new appAuth(userName, password);
+    const headers = new HttpHeaders({ 'content-type': 'application/json' });
+    var result = this.client.post<TokenAndRole>(url, credentials, {
+      headers: headers,
+      observe: 'response',
+    });
+    alert(result);
+    return result;
   }
 
+  override SignUp(
+    userName: string,
+    userEmail: string,
+    password: string,
+    userContactNo: string
+  ): Observable<object> {
+    const url = `${this.url}/SignUp/${userName}/${userEmail}/${password}/${userContactNo}`;
+
+    const headers = new HttpHeaders({ 'content-type': 'application/json' });
+    var result = this.client.post(url, {
+      headers: headers,
+      observe: 'response',
+    });
+    alert(result);
+    return result;
+  }
+}

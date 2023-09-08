@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Book Cavern Signup</title>
+</head>
+
+<body>
+    <p>hello</p>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Sign Up</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- <form> -->
+                            <!-- <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" #name placeholder="Enter your username">
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">Email</label>
+                                <input type="text" class="form-control" #email placeholder="Enter your Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="ContactNo">Contact Number</label>
+                                <input type="text" class="form-control" #contact placeholder="Enter your Contact Number">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" #pwd placeholder="Enter your Password">
+                            </div>
+                            <button class="btn btn-primary btn-block"
+                                (click)="getToken(name.value,email.value,contact.value,pwd.value)">SignUp</button> -->
+                        <!-- </form> -->
+                        <form [formGroup]="frmGroup" (ngSubmit)="submit()">
+                            <label>Name</label>
+                            <br />
+                            <input type="text" [formControl]="uname" />
+                        
+                            <span
+                                style="color: red"
+                                [innerText]="uname.dirty && uname.invalid && uname.errors?.['required'] ?'Name is Required':''"
+                            >
+                            </span>
+                            <span
+                                style="color: red"
+                                [innerText]="uname.dirty && uname.invalid && uname.errors?.['pattern'] ?'Pattern Mismatch':''"
+                            ></span>
+                        
+                            <br />
+                        
+                            <label>ContactNo</label>
+                            <br />
+                            <input type="text" [formControl]="contact" />
+                            <span
+                                style="color: red"
+                                [innerText]="contact.dirty && contact.invalid && contact.errors?.['required'] ?'Contact number is Required':''"
+                            >
+                            </span>
+                            <span
+                                style="color: red"
+                                [innerText]="contact.dirty && contact.invalid && contact.errors?.['pattern'] ? 'Enter valid Contact Number' : ''"
+                            >
+                            </span>
+                            <br />
+                            <label>Email</label>
+                            <br />
+                            <input type="text" [formControl]="email" />
+                            
+                            <span
+                                style="color: red"
+                                [innerText]="email.dirty && email.invalid && email.errors?.['required'] ?'Email is Required':''"
+                            >
+                            </span>
+                            <span
+                                style="color: red"
+                                [innerText]="email.dirty && email.errors?.['email'] ? 'Email Invalid' : ''"
+                            >
+                            </span>
+                            <br />
+                            <label>Password</label>
+                            <br />
+                            <input type="text" [formControl]="pass" />
+                            
+                            <span
+                                style="color: red"
+                                [innerText]="pass.dirty && pass.invalid && pass.errors?.['required'] ?'Email is Required':''"
+                            >
+                            </span>
+                            <span
+                                style="color: red"
+                                [innerText]="pass.dirty && pass.errors?.['pattern'] ? 'Password must contain At least 8 characters in length, Lowercase letters, Uppercase letters, Numbers, Special characters' : ''">
+                            </span>
+                            <br />
+                            <button type="submit">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
