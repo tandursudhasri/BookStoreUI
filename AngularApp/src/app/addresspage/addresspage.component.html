@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address</title>
+</head>
+<body>
+    <div class = "col-lg-3 col-md-6 mb-4">
+        <div class = "card h-100">
+            <div>
+                <h5>Address</h5>
+                <!-- <input type="text" #address placeholder="Enter Address"/> -->
+                <textarea rows = "5" cols = "30" #address>Enter Address</textarea>
+            </div>
+            <button (click)="updateAddress(address.value)">Place Order</button>
+        </div>
+    </div>
+</body>
+</html>

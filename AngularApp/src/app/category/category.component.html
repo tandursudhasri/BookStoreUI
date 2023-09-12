@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>Books</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('Thriller')" style="color:white">Thriller</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('Fiction')" style="color:white">Fiction</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('Science Fiction')" style="color:white">Science Fiction</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('Mystery')" style="color:white">Mystery</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('Fantasy')" style="color:white">Fantasy</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-transparent "(click)="getBooksByCategory('Romance')" style="color:white">Romance</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('Drama')" style="color:white">Drama</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('')" style="color:white">Children's</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-transparent "(click)="getBooksByCategory('Historical Fiction')" style="color:white">Historical Fiction</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-transparent "(click)="getBooksByCategory('Horror')" style="color:white">Horror</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5" *ngIf="button_clicked">
+      <h2>{{ cat }} Books</h2>
+      <div class="row">
+        <!-- Cards -->
+        <div class="col-lg-3 col-md-6 mb-4" *ngFor="let b of books">
+          <div class="card">
+            <!-- <img src="http://localhost:5099/Images/{{b.imageName}}" class="card-img-top image" alt="{{b.bookName}}"> -->
+            <div class="card-body">
+              <div>
+                <img
+                  src="assets/{{ b.bookId }}.jpg"
+                  class="card-img-left img-fluid img-thumbnail image"
+                  alt="{{ b.bookName }}"
+                  style="height: 300px"
+                />
+              </div>
+              <h5 class="card-title">{{ b.bookName }}</h5>
+              <p class="card-text">
+                <strong>{{ b.authorName }}</strong>
+              </p>
+              <p class="card-text">{{ b.category }}</p>
+              <p class="card-text">
+                <strong
+                  ><h5>₹{{ b.bookPrice }}</h5></strong
+                >
+              </p>
+              <button class="btn btn-primary" (click)="addToCart(b)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
