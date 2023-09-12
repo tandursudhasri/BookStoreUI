@@ -28,7 +28,7 @@ import { CartComponent } from './cart/cart.component';
     AdminpageComponent,
     CategoryComponent,
     BookaddandupdateComponent,
-    CartComponent,
+    CartComponent
     
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule,FormsModule, ReactiveFormsModule],
